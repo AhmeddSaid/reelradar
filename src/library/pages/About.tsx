@@ -70,7 +70,7 @@ export default function About() {
         </p>
         <div className="flex items-center space-x-6 text-xl text-gray-300">
           <a
-            href="https://github.com/ahmedsaidadnan"
+            href="https://github.com/ahmeddsaid"
             target="_blank"
             rel="noopener noreferrer"
             className="transition-colors hover:text-white"

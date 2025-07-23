@@ -71,16 +71,11 @@ npm install
 
 ### 3. Set Up Environment Variables
 
-Here’s the updated section to add to your README.md under a 🔐 Environment Variables section:
-
 🔐 Environment Variables
 
-To run this project, create a .env file in the root directory and add the following environment variables:
-
-# .env
+To run this project, create a `.env.local` file in the root directory and add the following environment variables:
 
 ```NODE_ENV=development
-SITENAME=ReelRadar
 NEXT_PUBLIC_API_URL=https://www.omdbapi.com
 NEXT_PUBLIC_API_KEY=your_api_key_here
 NEXT_PUBLIC_INITIAL_QUERY=avengers
@@ -88,11 +83,6 @@ NEXT_PUBLIC_INITIAL_QUERY=avengers
 
 You can refer to the included .env.example file as a template.
 
-Create a `.env.local` file in the root directory and add your OMDb API key:
-
-```env
-OMDB_API_KEY=your_api_key_here
-```
 
 > Don't have an API key yet? Get one for free from [OMDb API](https://www.omdbapi.com/apikey.aspx)
 

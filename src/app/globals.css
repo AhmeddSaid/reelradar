@@ -1,0 +1,270 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #e50914;
+  --accent: #221f1f;
+  --bg: #121212;
+  --text: #f5f5f1;
+  --secondary: #333333;
+  --hover: #b81c22;
+  --border: #444;
+  --placeholder: #888;
+  --shadow: rgba(0, 0, 0, 0.2);
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: "Roboto", sans-serif;
+}
+
+.loader {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: 25px 25px 75px rgba(0, 0, 0, 0.55);
+  border: 1px solid #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.loader::before {
+  content: "";
+  position: absolute;
+  inset: 20px;
+  background: transparent;
+  border: 1px dashed#444;
+  border-radius: 50%;
+  box-shadow:
+    inset -5px -5px 25px rgba(0, 0, 0, 0.25),
+    inset 5px 5px 35px rgba(0, 0, 0, 0.25);
+}
+
+.loader::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px dashed #444;
+  box-shadow:
+    inset -5px -5px 25px rgba(0, 0, 0, 0.25),
+    inset 5px 5px 35px rgba(0, 0, 0, 0.25);
+}
+
+.loader span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  background: transparent;
+  transform-origin: top left;
+  animation: radar81 2s linear infinite;
+  border-top: 1px dashed #fff;
+}
+
+.loader span::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #b81c22;
+  transform-origin: top left;
+  transform: rotate(-55deg);
+  filter: blur(30px) drop-shadow(20px 20px 20px red);
+}
+
+@keyframes radar81 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.card::before {
+  opacity: 0;
+  content: " ";
+  position: absolute;
+  display: block;
+  width: 220px;
+  height: 800px;
+  background: linear-gradient(
+    120deg,
+    var(--primary),
+    var(--hover),
+    var(--primary)
+  );
+  box-shadow:
+    0 0 10px var(--hover),
+    0 0 20px var(--hover),
+    0 0 40px var(--hover),
+    0 0 80px var(--hover);
+  filter: blur(10px);
+  transition: opacity 300ms;
+  animation: rotation_9018 4000ms infinite linear;
+  animation-play-state: paused;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.card:hover::before {
+  opacity: 1;
+  animation-play-state: running;
+}
+
+@keyframes rotation_9018 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.app-background {
+  width: 100%;
+  height: 100%;
+  background-color: #111111;
+  background-image: linear-gradient(
+    32deg,
+    rgba(8, 8, 8, 0.74) 30px,
+    transparent
+  );
+  background-size: 60px 60px;
+  background-position: -5px -5px;
+}
+
+.nav-link {
+  position: relative;
+  display: flex;
+  font-weight: 600;
+  font-size: 1.25rem;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.nav-link span {
+  margin: 0;
+  position: relative;
+  font-size: 1.25rem;
+  color: var(--text);
+}
+
+.nav-link::after {
+  position: absolute;
+  content: "";
+  width: 0;
+  left: 0;
+  bottom: -7px;
+  background: var(--primary);
+  height: 2px;
+  transition: 0.3s ease-out;
+}
+
+.nav-link span::before {
+  position: absolute;
+  content: attr(data-text);
+  width: 0%;
+  inset: 0;
+  color: var(--primary);
+  overflow: hidden;
+  transition: 0.3s ease-out;
+}
+
+.nav-link:hover::after,
+.nav-link:hover span::before,
+.nav-link.active::after,
+.nav-link.active span::before {
+  width: 100%;
+}
+
+.shine-text {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  color: #fff;
+  background: linear-gradient(to right, #9f9f9f 0, #fff 10%, #868686 20%);
+  background-position: 0;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s infinite linear;
+  animation-fill-mode: forwards;
+  -webkit-text-size-adjust: none;
+  white-space: nowrap;
+  /* font-family: "Poppins", sans-serif; */
+}
+
+@keyframes shine {
+  0% {
+    background-position: 0;
+  }
+  60% {
+    background-position: 180px;
+  }
+  100% {
+    background-position: 380px;
+  }
+}
+
+.input-container {
+  background: linear-gradient(173deg, #23272f 0%, #14161a 100%);
+  /* box-shadow: 10px 10px 20px #0e1013, -10px -10px 40px #383e4b; */
+}
+
+.input-container input {
+  border-radius: 0.8rem;
+  background: var(--bg);
+  box-shadow:
+    inset 5px 5px 10px #0e1013,
+    inset -5px -5px 10px #383e4b,
+    0px 0px 100px rgba(255, 212, 59, 0),
+    0px 0px 100px rgba(255, 102, 0, 0);
+  width: 100%;
+  flex-basis: 100%;
+  padding: 1rem;
+  border: none;
+  border: 1px solid transparent;
+  color: var(--text);
+  transition: all 300ms ease-in-out;
+}
+
+.input-container input:focus {
+  border: 1px solid var(--primary);
+  outline: none;
+  box-shadow:
+    inset 0px 0px 10px var(--primary),
+    inset 0px 0px 10px var(--hover),
+    0px 0px 10px 1px var(--hover),
+    0px 0px 10px 1px var(--primary);
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #383e4b;
+  border-radius: 8px;
+}
+
+::selection {
+  background: var(--primary);
+  color: var(--text);
+}
